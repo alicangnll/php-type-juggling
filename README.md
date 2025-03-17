@@ -71,9 +71,7 @@ var_dump(sha1('aaO8zKZF') === sha1('aa3OFF9m')); // bool(false);
  - PHP yüklendikten sonra "php index.php" komutuyla dosyayı terminal/SSH üzerinden çalıştırın
 
 ## :camera: Pics
-![Ekran görüntüsü 2025-03-17 115102](https://github.com/user-attachments/assets/3c71d0bb-d576-4426-9cd9-9b57c3d8b421)
-
-
+![Ekran görüntüsü 2025-03-17 144155](https://github.com/user-attachments/assets/eb54d67d-5589-49ad-9bba-f743796cf56b)
 
 ## Attack Prevention 🇬🇧
 Instead of the loose “==” operator, we should use the stricter “===” operator. This way the IDE will control if loops with stricter policies.
