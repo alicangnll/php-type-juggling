@@ -19,7 +19,7 @@ function crc32_collusion($hash, $length, $verbose) {
         // Only print every 10000 attempts to reduce output overhead
         if($verbose === true) {
             if ($counter % 10000 == 0) {
-                echo "[MD5] Attempts: $counter, Current length: $length, Last hash: $test_hash\n";
+                echo "[CRC32] Attempts: $counter, Current length: $length, Last hash: $test_hash\n";
             }
         }
         if ($test_hash == $hash) {
@@ -48,7 +48,7 @@ function sha1_collusion($hash, $length, $verbose) {
         // Only print every 10000 attempts to reduce output overhead
         if($verbose === true) {
             if ($counter % 10000 == 0) {
-                echo "[MD5] Attempts: $counter, Current length: $length, Last hash: $test_hash\n";
+                echo "[SHA1] Attempts: $counter, Current length: $length, Last hash: $test_hash\n";
             }
         }
         if ($test_hash == $hash) {
