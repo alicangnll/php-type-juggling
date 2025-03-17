@@ -73,6 +73,9 @@ var_dump(sha1('aaO8zKZF') === sha1('aa3OFF9m')); // bool(false);
 ## :camera: Pics
 ![Ekran görüntüsü 2025-03-17 144155](https://github.com/user-attachments/assets/eb54d67d-5589-49ad-9bba-f743796cf56b)
 
+![resim](https://github.com/user-attachments/assets/9fbf4943-4a08-4e79-a673-5724a17ee965)
+
+
 ## Attack Prevention 🇬🇧
 Instead of the loose “==” operator, we should use the stricter “===” operator. This way the IDE will control if loops with stricter policies.
 Examples,
