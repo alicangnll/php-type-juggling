@@ -106,3 +106,4 @@ var_dump(sha1('aaO8zKZF') === sha1('aa3OFF9m')); // bool(false);
 ## References / Referanslar
 - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Type%20Juggling/README.md
 - https://okankurtulus.com.tr/2022/06/07/php-type-juggling-zafiyeti/
+- https://stackoverflow.com/questions/4356289/php-random-string-generator
