@@ -1,4 +1,4 @@
-# :lock: PHP Hash (MD5/SHA1/CRC32) Collision Scanner 
+# :lock: PHP Hash (MD5/SHA1/CRC32) Type Juggling Scanner 
 
 ## :rocket: PHP Security 101: What is the PHP Type Juggling Attack? 🇬🇧
 PHP is a loosely typed language, which means it tries to predict the programmer's intent and automatically converts variables to different types whenever it seems necessary. For example, a string containing only numbers can be treated as an integer or a float. However, this automatic conversion (or type juggling) can lead to unexpected results, especially when comparing variables using the '==' operator, which only checks for value equality (loose comparison), not type and value equality (strict comparison).
