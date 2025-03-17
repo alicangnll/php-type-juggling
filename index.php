@@ -1,20 +1,24 @@
 <?php
-function generateRandomString($length = 10) {
+function generateRandomString($length = 10, $prefix) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
         $randomString .= $characters[mt_rand(0, $charactersLength - 1)];
     }
-    return $randomString;
+    if(isset($prefix) || $prefix != "" || $prefix != null) {
+        return $prefix."".$randomString;
+    } else {
+        return $randomString;
+    }
 }
 
-function crc32_collusion($hash, $length, $verbose) {
+function crc32_collusion($hash, $length, $verbose, $prefix) {
     $counter = 0;
     $found = false;
     while (!$found) {
         $counter++;
-        $test_string = generateRandomString($length);
+        $test_string = generateRandomString($length, $prefix);
         $test_hash = crc32($test_string);
         // Only print every 10000 attempts to reduce output overhead
         if($verbose === true) {
@@ -38,12 +42,12 @@ function crc32_collusion($hash, $length, $verbose) {
     }
 }
 
-function sha1_collusion($hash, $length, $verbose) {
+function sha1_collusion($hash, $length, $verbose, $prefix) {
     $counter = 0;
     $found = false;
     while (!$found) {
         $counter++;
-        $test_string = generateRandomString($length);
+        $test_string = generateRandomString($length, $prefix);
         $test_hash = sha1($test_string);
         // Only print every 10000 attempts to reduce output overhead
         if($verbose === true) {
@@ -68,12 +72,12 @@ function sha1_collusion($hash, $length, $verbose) {
 }
 
 
-function md5_collusion($hash, $length, $verbose) {
+function md5_collusion($hash, $length, $verbose, $prefix) {
     $counter = 0;
     $found = false;
     while (!$found) {
         $counter++;
-        $test_string = generateRandomString($length);
+        $test_string = generateRandomString($length, $prefix);
         $test_hash = md5($test_string);
         // Only print every 10000 attempts to reduce output overhead
         if($verbose === true) {
@@ -100,6 +104,7 @@ function md5_collusion($hash, $length, $verbose) {
 function main() {
     $hash_type = "md5";
     $hash = "0e830400451993494058024219903391";
+    $prefix = "alicangonullu.";
     $length = 1;
     $verbose = true;
     // Original Password : 9Hz7AuNRykKpd9Lyrm1PFV
@@ -110,11 +115,11 @@ function main() {
     echo(" SHA1 / MD5 / CRC32 Collision Vulnerability Scanner");
     echo(" ==================================================\n ");
     if($hash_type == "md5") {
-        md5_collusion($hash, $length, $verbose);
+        md5_collusion($hash, $length, $verbose, $prefix);
     } else if($hash_type == "sha1") {
-        sha1_collusion($hash, $length, $verbose);
+        sha1_collusion($hash, $length, $verbose, $prefix);
     } else if($hash_type == "crc32") {
-        crc32_collusion($hash, $length, $verbose);
+        crc32_collusion($hash, $length, $verbose, $prefix);
     } else {
         die("Hash type not supporting!");
     }
